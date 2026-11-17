@@ -1,0 +1,1 @@
+export { EditarMembro } from './EditarMembro';

@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --mc-accent: #ff273a;
+  --mc-accent-hover: #ff5263;
+  --mc-bg: #f5f6f8;
+  --mc-surface: #ffffff;
+  --mc-surface-alt: #eceef2;
+  --mc-line: #d7dbe3;
+  --mc-text: #111318;
+  --mc-muted: #5c6270;
+  --mc-good: #15803d;
+  --mc-late: #b45309;
+  --mc-low: #dc2626;
+}
+
+.dark {
+  --mc-accent: #ff273a;
+  --mc-accent-hover: #ff5263;
+  --mc-bg: #08090c;
+  --mc-surface: #191b20;
+  --mc-surface-alt: #15171b;
+  --mc-line: #42454e;
+  --mc-text: #f6f7f9;
+  --mc-muted: #bfc2cb;
+  --mc-good: #86de9b;
+  --mc-late: #ffb35c;
+  --mc-low: #ff6371;
+}
+
+@layer base {
+  html {
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: var(--mc-bg);
+    color: var(--mc-text);
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.mc-app-canvas {
+  background-color: var(--mc-bg);
+  background-image:
+    radial-gradient(
+      ellipse 85% 55% at 50% -8%,
+      color-mix(in srgb, var(--mc-accent) 7%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 92% 92%,
+      color-mix(in srgb, var(--mc-accent) 4%, transparent),
+      transparent 55%
+    );
+}
+
+.dark .mc-app-canvas {
+  background-color: #08090c;
+  background-image:
+    radial-gradient(
+      ellipse 90% 58% at 50% -6%,
+      color-mix(in srgb, var(--mc-accent) 16%, transparent),
+      color-mix(in srgb, var(--mc-accent) 6%, transparent) 44%,
+      transparent 76%
+    ),
+    radial-gradient(
+      circle at 92% 92%,
+      color-mix(in srgb, var(--mc-accent) 8%, transparent),
+      transparent 55%
+    );
+}
+
+.attendance-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 13px;
+}
+
+.attendance-bars i {
+  display: block;
+  width: 3px;
+  border: 1px solid currentColor;
+  border-radius: 1px;
+  height: 5px;
+}
+
+.attendance-bars i:nth-child(2) {
+  height: 9px;
+}
+
+.attendance-bars i:nth-child(3) {
+  height: 13px;
+}

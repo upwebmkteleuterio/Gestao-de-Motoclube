@@ -1,0 +1,1 @@
+export { EventosEFrequenciaDoMembro } from './EventosEFrequenciaDoMembro';
